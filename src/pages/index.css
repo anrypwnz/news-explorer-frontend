@@ -1,2 +1,44 @@
 @import url('../vendor/normalize.css');
 @import url('../vendor/fonts.css');
+
+
+/*  Root */
+.link {
+  text-decoration: none;
+  color: #1A1B22;
+}
+.root {
+  font-family: 'Roboto';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding-bottom:80px;
+  min-height: 100vh;
+}
+.main {
+  max-width: 1440px;
+}
+
+/* Header */
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 15px 0;
+  background: rgba(196, 196, 196, 0.01);
+  box-shadow: inset 0px -1px 0px rgba(255, 255, 255, 0.2);
+}
+
+.search {
+  /* background-image: url('../images/georgia-de-lotz-search-bg.png'); */
+  color: white;
+  margin-top: -80px;
+  position: relative;
+}
+
+.search-bg {
+  position: absolute;
+  z-index: -1;
+  height: 100;
+  width: 100VW;
+}
