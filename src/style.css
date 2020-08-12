@@ -1,3 +1,1 @@
-h1 {
-  color: darkred;
-}
+@import url('./pages/index.css')
