@@ -8,13 +8,13 @@
   font-family: 'Roboto';
   font-style:  normal;
   font-weight: 400;
-  src: url("./fonts/roboto-medium.woff") format("woff");
+  src: url("./fonts/roboto-regular.woff") format("woff");
 }
 @font-face {
   font-family: 'Roboto';
   font-style:  bold;
   font-weight: 700;
-  src: url("./fonts/roboto-black.woff") format("woff");
+  src: url("./fonts/roboto-medium.woff") format("woff");
 }
 @font-face {
   font-family: 'Roboto';
