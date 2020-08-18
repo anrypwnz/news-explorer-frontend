@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
   <meta charset="UTF-8">
@@ -16,19 +16,60 @@
 </head>
 
 <body>
+
   <div class="root">
+<!-- POPUP -->
+  <section class="popup">
+    <form class="popup__content">
+      <div class="popup__close">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M22.3566 20L31.1781 28.8215L28.8211 31.1786L18.3497 20.7072C17.9592 20.3166 17.9592 19.6835 18.3497 19.2929L28.8211 8.82153L31.1781 11.1786L22.3566 20Z" fill="white"/>
+          <path d="M18.1307 20L9.30919 28.8215L11.6662 31.1786L22.1376 20.7072C22.5281 20.3166 22.5281 19.6835 22.1376 19.2929L11.6662 8.82153L9.30919 11.1786L18.1307 20Z" fill="white"/>
+          </svg>
+      </div>
+      <h2 class="popup__title">Регистрация</h2>
+      <div class="input__group">
+        <label class="input__label" for="email">Email</label>
+        <input id="email" type="text" class="popup__input popup__input-email" placeholder="Email" required>
+        <span class="popup__atention popup__validation-error">Неправильный формат Email</span>
+      </div>
+      <div class="input__group">
+        <label class="input__label" for="password">Пароль</label>
+      <input id="password" type="text" class="popup__input popup__input-password" placeholder="Пароль" required>
+
+      </div>
+      <div class="input__group">
+        <label class="input__label" for="name">Имя</label>
+      <input id="name" type="text" class="popup__input popup__input-name" placeholder="Имя" required>
+      </div>
+      <div class="input__group">
+        <span class ="popup__atention">Такой пользователь уже есть</span>
+        <input type="submit" class="popup__input popup__input-submit" value="Зарегистрироваться">
+      </div>
+
+      <span class="popup__helper">или <a class="popup__helper_link" href="">Войти</a></span>
+    </form>
+  </section>
+<!-- HEADER -->
     <header class="header">
       <div class="header__title">NewsExplorer</div>
       <nav class="header__nav">
-        <a class="nav__item link nav__item_active" href="#">Главная</a>
-        <a class="nav__item link circle" href="#">Авторизоваться</a>
+        <a class="nav__item link nav__item_active" href="./saved.html">Главная</a>
+        <a id ="authorization" class="nav__item link circle" href="#">Авторизоваться</a>
+        <!-- FIXME inline onlick -->
+        <a href="javascript:void(0);" class="header__icon" onclick="hamburger()">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="4" y="8" width="16" height="2" fill="white"/>
+          <rect x="4" y="14" width="16" height="2" fill="white"/>
+          </svg>
+          </a>
       </nav>
     </header>
+<!-- MAIN NADO ?? -->
 
-    <main class="main">
-
+<!-- SEARCH -->
       <section class="search root__section">
-        <img class="search-bg" src="./images/georgia-de-lotz-search-bg.png" alt="background">
+        <div class="search-bg"></div>
         <div class="search__container">
           <h1 class="search__title">Что в мире творится?</h1>
           <h2 class="search__subtitle">Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.</h2>
@@ -39,7 +80,7 @@
         </div>
 
       </section>
-
+<!-- RESULTS -->
       <section class="results root__section">
         <h2 class="results__title">Результаты поиска</h2>
         <div class="results__container">
@@ -128,23 +169,24 @@
           <p class="result__status-text">К сожалению по вашему запросу ничего не найдено.</p>
         </div>
       </section>
-
+<!-- ABOUT -->
       <section class="about root__section">
         <img class="about__avatar" src="./images/image_08.png" alt="avatar">
         <div class="about__content">
           <h3 class="about__title">Об авторе</h3>
           <p class="about__text">Это блок с описанием автора проекта. Здесь следует указать, как вас зовут, чем вы занимаетесь, какими технологиями разработки владеете. </p>
-          <p class="about__text">+Также можно рассказать о процессе обучения в Практикуме, чему вы тут научились, и чем можете помочь потенциальным заказчикам.</p>
+          <p class="about__text">Также можно рассказать о процессе обучения в Практикуме, чему вы тут научились, и чем можете помочь потенциальным заказчикам.</p>
         </div>
       </section>
 
-    </main>
-
+<!-- FOOTER -->
     <footer class="footer root__section">
-      <div class="footer__copyrights">© 2020 Anrypwnz, Powered by News API</div>
+      <div class="footer__copyrights">©2020 Anrypwnz, Powered by News API</div>
+      <div class="footer__resourses">
       <div class="footer__links">
         <a class ="footer__link link" href="index.html">Главная</a>
         <a class ="footer__link link" href="https://praktikum.yandex.ru/">Яндекс.Практикум</a>
+      </div>
         <div class="footer__icons">
         <a class ="footer__link link" href="https://facebook.com/anrypwnz">
           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -161,11 +203,12 @@
           </svg>
         </a>
       </div>
-      </div>
+    </div>
     </footer>
   </div>
 
   <!-- <script type="module" src="<%= htmlWebpackPlugin.files.js %>"></script> -->
+  <script type="text/javascript" src="./scripts/index.js"></script>
 </body>
 
 </html>
