@@ -452,7 +452,9 @@ button {
 .header_dark .nav__item_active{
   border-bottom: 2px solid #1A1B22;
 }
-
+.header_dark .header__title {
+  color: #1A1B22;
+}
 .container {
   /* padding: 40px 104px; */
   align-items: flex-start;

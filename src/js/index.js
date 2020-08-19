@@ -15,6 +15,10 @@ function hamburger() {
   }
 }
 
+document.querySelector('.header__icon').addEventListener('mousedown', () => {
+  hamburger();
+});
+
 // open pop on authorization
 document.querySelector('#authorization').addEventListener('mousedown', () => {
   document.querySelector('.popup').classList.add('popup_active');
@@ -25,8 +29,4 @@ document.querySelector('#authorization').addEventListener('mousedown', () => {
 document.querySelector('.popup__close').addEventListener('mousedown', () => {
   document.querySelector('.popup').classList.remove('popup_active');
   document.body.style.overflow = 'auto';
-});
-
-document.querySelector('.header__icon').addEventListener('mousedown', () => {
-
 });
