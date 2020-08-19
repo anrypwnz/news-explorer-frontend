@@ -1,4 +1,6 @@
-// import '../css/index.css';
+import '../css/index.css';
+import '../images/avatar.png';
+import '../images/favicon.svg';
 
 console.log('###: index.js loaded');
 

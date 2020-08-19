@@ -1,18 +1,13 @@
 @import url('../vendor/normalize.css');
 @import url('../vendor/fonts.css');
 
-
 /*  Root */
-/* * {
-  border: 1px solid pink;
-} */
 input {
   border: 0;
   outline: none;
 }
 button {
   border: 0;
-
   outline: none;
 }
 

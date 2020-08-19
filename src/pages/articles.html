@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,8 +10,8 @@
   <title>News Explorer</title>
   <link rel="icon" type="image/svg+xml" href="./images/favicon.svg">
   <!-- временное решение тк хз как будут работать импорты вне вебпака-->
-  <link rel="stylesheet" type="text/css" href="../css/index.css">
-  <!-- <link rel="stylesheet" type="text/css" href="<%=htmlWebpackPlugin.files.css %>"> -->
+  <!-- <link rel="stylesheet" type="text/css" href="../css/index.css"> -->
+  <link rel="stylesheet" type="text/css" href="<%=htmlWebpackPlugin.files.css %>">
 </head>
 <body>
   <div class="root">
@@ -172,7 +172,10 @@
 
     </footer>
   </div>
-  <script type="text/javascript" src="../js/index.js"></script>
+  <!-- <script type="text/javascript" src="../js/index.js"></script> -->
+  <script type="module" src="<%= htmlWebpackPlugin.files.js %>"></script>
+
+
 
 </body>
 </html>

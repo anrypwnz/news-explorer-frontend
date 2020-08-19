@@ -11,8 +11,8 @@
   <title>News Explorer</title>
   <link rel="icon" type="image/svg+xml" href="./images/favicon.svg">
   <!-- временное решение тк хз как будут работать импорты вне вебпака-->
-  <link rel="stylesheet" type="text/css" href="../css/index.css">
-  <!-- <link rel="stylesheet" type="text/css" href="<%=htmlWebpackPlugin.files.css %>"> -->
+  <!-- <link rel="stylesheet" type="text/css" href="../css/index.css"> -->
+  <link rel="stylesheet" type="text/css" href="<%=htmlWebpackPlugin.files.css %>">
 </head>
 
 <body>
@@ -171,7 +171,7 @@
       </section>
 <!-- ABOUT -->
       <section class="about root__section">
-        <img class="about__avatar" src="../images/image_08.png" alt="avatar">
+        <img class="about__avatar" src="../dist/images/avatar.png" alt="avatar">
         <div class="about__content">
           <h3 class="about__title">Об авторе</h3>
           <p class="about__text">Это блок с описанием автора проекта. Здесь следует указать, как вас зовут, чем вы занимаетесь, какими технологиями разработки владеете. </p>
@@ -207,8 +207,8 @@
     </footer>
   </div>
 
-  <!-- <script type="module" src="<%= htmlWebpackPlugin.files.js %>"></script> -->
-  <script type="text/javascript" src="../js/index.js"></script>
+  <script type="module" src="<%= htmlWebpackPlugin.files.js %>"></script>
+  <!-- <script type="text/javascript" src="../js/index.js"></script> -->
 </body>
 
 </html>

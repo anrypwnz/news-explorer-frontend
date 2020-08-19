@@ -37,7 +37,9 @@ module.exports = {
         },
         {
           loader: 'image-webpack-loader',
-          options: {},
+          options: {
+            publicPath: 'assets',
+          },
         },
       ],
     },
@@ -50,7 +52,7 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'style/style.[contenthash].css',
+      filename: 'style.[contenthash].css',
     }),
     new OptimizeCssAssetsPlugin({
       assetNameRegExp: /\.css$/i,
@@ -64,6 +66,13 @@ module.exports = {
       inject: false,
       template: './src/pages/index.html',
       filename: 'index.html',
+      chunks: ['main'],
+    }),
+    new HtmlWebpackPlugin({
+      inject: false,
+      template: './src/pages/articles.html',
+      filename: 'articles.html',
+      chunks: ['articles'],
     }),
     new WebpackMd5Hash(),
     new webpack.DefinePlugin({
