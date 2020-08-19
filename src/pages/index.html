@@ -11,7 +11,7 @@
   <title>News Explorer</title>
   <link rel="icon" type="image/svg+xml" href="./images/favicon.svg">
   <!-- временное решение тк хз как будут работать импорты вне вебпака-->
-  <link rel="stylesheet" type="text/css" href="./style.css">
+  <link rel="stylesheet" type="text/css" href="../css/index.css">
   <!-- <link rel="stylesheet" type="text/css" href="<%=htmlWebpackPlugin.files.css %>"> -->
 </head>
 
@@ -28,21 +28,21 @@
           </svg>
       </div>
       <h2 class="popup__title">Регистрация</h2>
-      <div class="input__group">
+      <div class="input-group">
         <label class="input__label" for="email">Email</label>
         <input id="email" type="text" class="popup__input popup__input-email" placeholder="Email" required>
         <span class="popup__atention popup__validation-error">Неправильный формат Email</span>
       </div>
-      <div class="input__group">
+      <div class="input-group">
         <label class="input__label" for="password">Пароль</label>
       <input id="password" type="text" class="popup__input popup__input-password" placeholder="Пароль" required>
 
       </div>
-      <div class="input__group">
+      <div class="input-group">
         <label class="input__label" for="name">Имя</label>
       <input id="name" type="text" class="popup__input popup__input-name" placeholder="Имя" required>
       </div>
-      <div class="input__group">
+      <div class="input-group">
         <span class ="popup__atention">Такой пользователь уже есть</span>
         <input type="submit" class="popup__input popup__input-submit" value="Зарегистрироваться">
       </div>
@@ -52,9 +52,9 @@
   </section>
 <!-- HEADER -->
     <header class="header">
-      <div class="header__title">NewsExplorer</div>
+      <a href ="./index.html" class="header__title link">NewsExplorer</a>
       <nav class="header__nav">
-        <a class="nav__item link nav__item_active" href="./saved.html">Главная</a>
+        <a class="nav__item link nav__item_active" href="./articles.html">Главная</a>
         <a id ="authorization" class="nav__item link circle" href="#">Авторизоваться</a>
         <!-- FIXME inline onlick -->
         <a href="javascript:void(0);" class="header__icon" onclick="hamburger()">
@@ -171,7 +171,7 @@
       </section>
 <!-- ABOUT -->
       <section class="about root__section">
-        <img class="about__avatar" src="./images/image_08.png" alt="avatar">
+        <img class="about__avatar" src="../images/image_08.png" alt="avatar">
         <div class="about__content">
           <h3 class="about__title">Об авторе</h3>
           <p class="about__text">Это блок с описанием автора проекта. Здесь следует указать, как вас зовут, чем вы занимаетесь, какими технологиями разработки владеете. </p>
@@ -208,7 +208,7 @@
   </div>
 
   <!-- <script type="module" src="<%= htmlWebpackPlugin.files.js %>"></script> -->
-  <script type="text/javascript" src="./scripts/index.js"></script>
+  <script type="text/javascript" src="../js/index.js"></script>
 </body>
 
 </html>

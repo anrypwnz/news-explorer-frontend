@@ -37,9 +37,6 @@ button {
   justify-content: center;
   padding: 80px 104px;
 }
-.main {
-
-}
 
 /* Header */
 
@@ -59,7 +56,9 @@ button {
   font-style: normal;
   font-weight: bold;
   font-size: 20px;
+  color: #fff;
   align-self: center;
+  z-index: 3;
 }
 
 .header__nav {
@@ -287,7 +286,6 @@ button {
 
 .card__source {
   font-family: Roboto Slab;
-  font-weight: bold;
   text-transform: uppercase;
   color: #B6BCBF;
 }
@@ -525,7 +523,7 @@ button {
   width: 100%;
   margin-top: 40px;
 }
-.input__group {
+.input-group {
   position: relative;
   display: flex;
   justify-content: center;
@@ -669,7 +667,7 @@ button {
   }
 }
 
-.header__menu {
+.header__bg {
   position: absolute;
   top: 0;
   left: 0;
@@ -679,3 +677,18 @@ button {
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.5);
 }
+
+.header__menu {
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  background: #1A1B22;
+  height: 280px;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+
+  .header__nav.header__menu a {
+    display: block;
+    text-align: left;
+  }

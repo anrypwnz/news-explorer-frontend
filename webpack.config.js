@@ -10,28 +10,31 @@ const isDev = process.env.NODE_ENV === 'development';
 
 module.exports = {
   entry: {
-    main: './src/index.js',
+    main: './src/js/index.js',
+    articles: './src/js/articles/index.js',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].[chunkhash].js',
+    filename: './js/[name].[chunkhash].js',
   },
   module: {
-    rules: [{ // тут описываются правила
-      test: /\.js$/, // регулярное выражение, которое ищет все js файлы
+    rules: [{
+      test: /\.js$/i,
       use: {
         loader: 'babel-loader',
-      }, // весь JS обрабатывается пакетом babel-loader
-      exclude: /node_modules/, // исключает папку node_modules
+      },
+      exclude: /node_modules/,
     },
     {
-      test: /\.css$/, // применять это правило только к CSS-файлам
-      use: [(isDev ? 'style-loader' : MiniCssExtractPlugin.loader), 'css-loader', 'postcss-loader'], // к этим файлам нужно применить пакеты, которые мы уже установили
+      test: /\.css$/i,
+      use: [(isDev ? 'style-loader' : MiniCssExtractPlugin.loader), 'css-loader', 'postcss-loader'],
     },
     {
-      test: /\.(png|jpg|gif|ico|svg)$/,
+      test: /\.(png|jpe?g|gif|ico|svg)$/i,
       use: [
-        'file-loader?name=./images/[name].[ext]', // указали папку, куда складывать изображения
+        {
+          loader: 'file-loader?name=./images/[name].[ext]',
+        },
         {
           loader: 'image-webpack-loader',
           options: {},
@@ -39,7 +42,7 @@ module.exports = {
       ],
     },
     {
-      test: /\.(eot|ttf|woff|woff2)$/,
+      test: /\.(eot|ttf|woff|woff2)$/i,
       loader: 'file-loader?name=./vendor/[name].[ext]',
     },
 
@@ -47,10 +50,10 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'style.[contenthash].css',
+      filename: 'style/style.[contenthash].css',
     }),
     new OptimizeCssAssetsPlugin({
-      assetNameRegExp: /\.css$/g,
+      assetNameRegExp: /\.css$/i,
       cssProcessor: cssNano,
       cssProcessorPluginOptions: {
         preset: ['default'],
@@ -58,10 +61,9 @@ module.exports = {
       canPrint: true,
     }),
     new HtmlWebpackPlugin({
-      // Означает, что:
-      inject: false, // стили НЕ нужно прописывать внутри тегов
-      template: './src/index.html', // откуда брать образец для сравнения с текущим видом проекта
-      filename: 'index.html', // имя выходного файла, то есть того, что окажется в папке dist после сборки
+      inject: false,
+      template: './src/pages/index.html',
+      filename: 'index.html',
     }),
     new WebpackMd5Hash(),
     new webpack.DefinePlugin({
