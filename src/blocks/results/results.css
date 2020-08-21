@@ -3,7 +3,7 @@
   background-color: #F5F6F7;
 }
 .results__title {
-  font-family: Roboto Slab;
+  font-family:' Roboto Slab', Arial, Helvetica, sans-serif;;
   font-size: 40px;
   align-self: flex-start;
 }
@@ -38,7 +38,7 @@
   align-items: center;
 }
 .result__status-title {
-  font-family: Roboto Slab;
+  font-family: 'Roboto Slab', Arial, Helvetica, sans-serif;;
   font-size: 26px;
   margin: 0;
   margin-top: 24px;

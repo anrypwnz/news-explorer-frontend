@@ -24,7 +24,7 @@
 }
 
 .search__title {
-  font-family: Roboto Slab;
+  font-family: 'Roboto Slab', Arial, Helvetica, sans-serif;
   font-size: 60px;
   max-width: 604px;
   margin: 32px 0;
@@ -56,6 +56,10 @@
   padding: 0;
   padding-left: 24px;
   font-size: 16px;
+}
+.input__field:focus {
+  border: 2px solid #347EFF;
+  box-sizing: border-box;
 }
 
 .input__button {
