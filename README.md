@@ -1,12 +1,39 @@
-# news-explorer-frontend
+# Welcome to news-explorer-frontend 👋
+![Version](https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000)
+[![Documentation](https://img.shields.io/badge/documentation-yes-brightgreen.svg)](https://github.com/anrypwnz/news-explorer-frontend#readme)
 
-[https://anrypwnz.github.io/news-explorer-frontend/](https://anrypwnz.github.io/news-explorer-frontend/)
+> Frontend for &#34;News Explorer&#34; project
 
-### Как развернуть проект
-`npm run build` - укомплектовать сборку
+### 🏠 [Homepage](https://anrypwnz.github.io/news-explorer-frontend/)
 
-`npm run dev` - запустить сборку на локальном сервере
+## How to run project
 
-`npm run deploy` - опубликовать проект на сервере 
 
- 
+`npm install` - install npm depencises
+`npm run build` -  assemble build 
+`npm run dev` - run hotreload mode
+`npm run deploy` - deploy project
+
+## Author
+
+👤 **anrypwnz**
+
+* Website: https://anrypwnz.github.io/
+* Github: [@anrypwnz](https://github.com/anrypwnz)
+
+## 🤝 Contributing
+
+Contributions, issues and feature requests are welcome!
+
+Feel free to check [issues page](https://github.com/anrypwnz/news-explorer-frontend/issues).
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+
+## 📝 License
+
+Copyright © 2020 [anrypwnz](https://github.com/anrypwnz).
+
+This project is [ISC](https://github.com/anrypwnz/news-explorer-frontend/blob/master/LICENSE) licensed.

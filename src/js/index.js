@@ -1,6 +1,7 @@
 import '../css/index.css';
 import '../images/avatar.png';
 import '../images/favicon.svg';
+import '../images/image_07.png';
 
 console.log('###: index.js loaded');
 

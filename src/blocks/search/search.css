@@ -58,8 +58,7 @@
   font-size: 16px;
 }
 .input__field:focus {
-  border: 2px solid #347EFF;
-  box-sizing: border-box;
+  box-shadow: 0 0 5px 2px #4d90f0;
 }
 
 .input__button {
