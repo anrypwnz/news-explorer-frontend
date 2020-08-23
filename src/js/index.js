@@ -5,14 +5,24 @@ import '../images/image_07.png';
 
 console.log('###: index.js loaded');
 
+function on() {
+  document.querySelector('.overlay').style.display = 'block';
+}
+
+function off() {
+  document.querySelector('.overlay').style.display = 'none';
+}
+
 function hamburger() {
   const nav = document.querySelector('.header__nav');
   console.log({ nav });
   if (nav.className === 'header__nav') {
+    on();
     // nav.className += ' header__bg';
     nav.className += ' header__menu';
     document.body.style.overflow = 'hidden';
   } else {
+    off();
     nav.className = 'header__nav';
     document.body.style.overflow = 'auto';
   }

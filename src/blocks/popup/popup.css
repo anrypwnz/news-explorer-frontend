@@ -81,7 +81,7 @@
   top: 85px;
 }
 
-@media screen and (max-width: 321px) {
+@media screen and (max-width: 573px) {
   .popup__content {
     height: 100vh;
     align-self: flex-start;
