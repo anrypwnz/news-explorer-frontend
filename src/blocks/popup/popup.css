@@ -1,3 +1,26 @@
+@keyframes errors {
+  from {
+    margin-top: -5px;
+    opacity: .1;
+  }
+
+  to {
+    margin-top: 10px;
+    opacity: 1;
+  }
+}
+
+.popup__input:valid:not(:placeholder-shown) {
+	border-color: #559BBC;
+}
+
+.popup__input:invalid:not(:placeholder-shown) {
+	border-color: #df4b41;
+}
+
+.popup__input:invalid:not(:placeholder-shown) + .popup__validation-error {
+	display: block;
+}
 
 .popup {
   display:none;
@@ -59,7 +82,13 @@
   color: #fff;
   border-radius: 100px;
   margin-top: 40px;
+  cursor: pointer;
+  border-bottom: none;
 }
+.popup__input-submit:disabled {
+  background-color: #E6E8EB;
+}
+
 .popup__helper {
   align-self: center;
   margin-top: 16px;
@@ -70,6 +99,7 @@
   color: #2F71E5;
 }
 .popup__atention {
+  display: none;
   font-size: 12px;
   color: #ff0000;
   text-align: center;
@@ -77,8 +107,10 @@
   top: 14px;
 }
 .popup__validation-error {
+  display: none;
   left: 0;
   top: 85px;
+  animation: errors .1s ease-in-out;
 }
 
 @media screen and (max-width: 573px) {

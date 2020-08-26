@@ -34,7 +34,6 @@
         </a>
       </nav>
     </header>
-    <!-- MAIN NADO ?? -->
 
     <!-- SEARCH -->
     <section class="search root__section">
@@ -48,14 +47,14 @@
           <input type="submit" class="input__button" value="Искать">
         </div>
       </div>
-
     </section>
+
     <!-- RESULTS -->
     <section class="results root__section">
       <h2 class="results__title">Результаты поиска</h2>
       <div class="results__container">
 
-        <!-- card -->
+        <!-- CARD -->
         <article class="card">
           <div class="card__bg">
             <img src="../../images/image_07.png" alt="card-image" class="card__image">
@@ -165,7 +164,7 @@
 
     <!-- POPUP -->
     <section class="popup">
-      <form class="popup__content">
+      <form name="main" class="popup__content">
         <div class="popup__close">
           <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
@@ -179,24 +178,25 @@
         <h2 class="popup__title">Регистрация</h2>
         <div class="input-group">
           <label class="input__label" for="email">Email</label>
-          <input id="email" type="text" class="popup__input popup__input-email" placeholder="Email" required>
-          <span class="popup__atention popup__validation-error">Неправильный формат Email</span>
+          <input name="email" id="email" type="email" autocomplete="email" class="popup__input popup__input-email" placeholder="Email" minlength="2" maxlength="30" pattern="^(?!.*(\.\.))[a-zA-Z0-9]+[-_\.\dA-Za-z]*@[a-zA-Z\d]+[-_\da-z]*\.[a-z]+$" required>
+          <span class="popup__atention popup__validation-error">неправильный формат Email</span>
         </div>
         <div class="input-group">
           <label class="input__label" for="password">Пароль</label>
-          <input id="password" type="text" class="popup__input popup__input-password" placeholder="Пароль" required>
+          <input name="password" id="password" type="password" autocomplete="current-password" class="popup__input popup__input-password" minlength="2" maxlength="30"  placeholder="Пароль" required>
+          <span class="popup__atention popup__validation-error">пароль от 2х до 30 символов</span>
 
         </div>
         <div class="input-group">
           <label class="input__label" for="name">Имя</label>
-          <input id="name" type="text" class="popup__input popup__input-name" placeholder="Имя" required>
+          <input name="name" id="name" type="text" autocomplete="username" class="popup__input popup__input-name" minlength="2" maxlength="20" pattern="^[А-ЯЁA-Z][а-яёa-z]+(-[А-ЯЁA-Z][а-яёa-z]*)?$" placeholder="Имя" required>
+          <span class="popup__atention popup__validation-error">имя с заглавной буквы, без цифр</span>
         </div>
         <div class="input-group">
-          <span class="popup__atention">Такой пользователь уже есть</span>
-          <input type="submit" class="popup__input popup__input-submit" value="Зарегистрироваться">
+          <span class="popup__atention">Пользователь с таким email уже зарегистрирован</span>
+          <input name="submit" type="submit" class="popup__input popup__input-submit" value="Зарегистрироваться" disabled>
         </div>
-
-        <span class="popup__helper">или <a class="popup__helper_link" href="">Войти</a></span>
+        <span class="popup__helper">или <a class="popup__helper_link" href="#">Войти</a></span>
       </form>
     </section>
 
