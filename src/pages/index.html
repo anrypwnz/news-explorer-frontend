@@ -28,8 +28,8 @@
         <a class="nav__item circle authorization" href="#">Авторизоваться</a>
         <a href="javascript:void(0);" class="header__icon">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="4" y="8" width="16" height="2" fill="white"/>
-            <rect x="4" y="14" width="16" height="2" fill="white"/>
+            <rect x="4" y="8" width="16" height="2" fill="white" />
+            <rect x="4" y="14" width="16" height="2" fill="white" />
           </svg>
         </a>
       </nav>
@@ -163,7 +163,9 @@
     </section>
 
     <!-- POPUP -->
-    <section class="popup">
+    <section class="popup"></section>
+
+    <!-- <section class="popup popup__main">
       <form name="main" class="popup__content">
         <div class="popup__close">
           <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -178,27 +180,86 @@
         <h2 class="popup__title">Регистрация</h2>
         <div class="input-group">
           <label class="input__label" for="email">Email</label>
-          <input name="email" id="email" type="email" autocomplete="email" class="popup__input popup__input-email" placeholder="Email" minlength="2" maxlength="30" pattern="^(?!.*(\.\.))[a-zA-Z0-9]+[-_\.\dA-Za-z]*@[a-zA-Z\d]+[-_\da-z]*\.[a-z]+$" required>
+          <input name="email" id="email" type="email" autocomplete="email" class="popup__input popup__input-email"
+            placeholder="Email" minlength="2" maxlength="30"
+            pattern="^(?!.*(\.\.))[a-zA-Z0-9]+[-_\.\dA-Za-z]*@[a-zA-Z\d]+[-_\da-z]*\.[a-z]+$" required>
           <span class="popup__atention popup__validation-error">неправильный формат Email</span>
         </div>
         <div class="input-group">
           <label class="input__label" for="password">Пароль</label>
-          <input name="password" id="password" type="password" autocomplete="current-password" class="popup__input popup__input-password" minlength="2" maxlength="30"  placeholder="Пароль" required>
+          <input name="password" id="password" type="password" autocomplete="current-password"
+            class="popup__input popup__input-password" minlength="2" maxlength="30" placeholder="Пароль" required>
           <span class="popup__atention popup__validation-error">пароль от 2х до 30 символов</span>
 
         </div>
         <div class="input-group">
           <label class="input__label" for="name">Имя</label>
-          <input name="name" id="name" type="text" autocomplete="username" class="popup__input popup__input-name" minlength="2" maxlength="20" pattern="^[А-ЯЁA-Z][а-яёa-z]+(-[А-ЯЁA-Z][а-яёa-z]*)?$" placeholder="Имя" required>
+          <input name="name" id="name" type="text" autocomplete="username" class="popup__input popup__input-name"
+            minlength="2" maxlength="20" pattern="^[А-ЯЁA-Z][а-яёa-z]+(-[А-ЯЁA-Z][а-яёa-z]*)?$" placeholder="Имя"
+            required>
           <span class="popup__atention popup__validation-error">имя с заглавной буквы, без цифр</span>
         </div>
         <div class="input-group">
           <span class="popup__atention">Пользователь с таким email уже зарегистрирован</span>
-          <input name="submit" type="submit" class="popup__input popup__input-submit" value="Зарегистрироваться" disabled>
+          <input name="submit" type="submit" class="popup__input popup__input-submit" value="Зарегистрироваться"
+            disabled>
         </div>
         <span class="popup__helper">или <a class="popup__helper_link" href="#">Войти</a></span>
       </form>
+    </section> -->
+
+    <section class="popup popup__login">
+      <form name="login" class="popup__content">
+        <div class="popup__close">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M22.3566 20L31.1781 28.8215L28.8211 31.1786L18.3497 20.7072C17.9592 20.3166 17.9592 19.6835 18.3497 19.2929L28.8211 8.82153L31.1781 11.1786L22.3566 20Z"
+              fill="white" />
+            <path
+              d="M18.1307 20L9.30919 28.8215L11.6662 31.1786L22.1376 20.7072C22.5281 20.3166 22.5281 19.6835 22.1376 19.2929L11.6662 8.82153L9.30919 11.1786L18.1307 20Z"
+              fill="white" />
+          </svg>
+        </div>
+        <h2 class="popup__title">Вход</h2>
+        <div class="input-group">
+          <label class="input__label" for="email">Email</label>
+          <input name="email" id="email" type="email" autocomplete="email" class="popup__input popup__input-email"
+            placeholder="Email" minlength="2" maxlength="30"
+            pattern="^(?!.*(\.\.))[a-zA-Z0-9]+[-_\.\dA-Za-z]*@[a-zA-Z\d]+[-_\da-z]*\.[a-z]+$" required>
+          <span class="popup__atention popup__validation-error">неправильный формат Email</span>
+        </div>
+        <div class="input-group">
+          <label class="input__label" for="password">Пароль</label>
+          <input name="password" id="password" type="password" autocomplete="current-password"
+            class="popup__input popup__input-password" minlength="2" maxlength="30" placeholder="Пароль" required>
+          <span class="popup__atention popup__validation-error">пароль от 2х до 30 символов</span>
+        </div>
+        <div class="input-group">
+          <span class="popup__atention">Пользователь с таким email уже зарегистрирован</span>
+          <input name="submit" type="submit" class="popup__input popup__input-submit" value="Зарегистрироваться"
+            disabled>
+        </div>
+        <span class="popup__helper">или <a class="popup__helper_link" href="#">Зарегистрироваться</a></span>
+      </form>
     </section>
+
+    <section class="popup popup__success">
+      <div class="popup__content">
+        <div class="popup__close">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M22.3566 20L31.1781 28.8215L28.8211 31.1786L18.3497 20.7072C17.9592 20.3166 17.9592 19.6835 18.3497 19.2929L28.8211 8.82153L31.1781 11.1786L22.3566 20Z"
+              fill="white" />
+            <path
+              d="M18.1307 20L9.30919 28.8215L11.6662 31.1786L22.1376 20.7072C22.5281 20.3166 22.5281 19.6835 22.1376 19.2929L11.6662 8.82153L9.30919 11.1786L18.1307 20Z"
+              fill="white" />
+          </svg>
+        </div>
+        <h2 class="popup__title">Пользователь успешно зарегистрирован!</h2>
+        <span class="popup__helper"><a class="popup__helper_link" href="#">Выполнить вход</a></span>
+      </div>
+    </section>
+
 
     <!-- FOOTER -->
     <footer class="footer root__section">

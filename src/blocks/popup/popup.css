@@ -40,7 +40,6 @@
 .popup__content {
   position: relative;
   width: 430px;
-  min-height: 182px;
   max-height: 457px;
   background-color: #fff;
   border-radius: 16px;
@@ -97,6 +96,7 @@
 .popup__helper_link {
   text-decoration: none;
   color: #2F71E5;
+  cursor: pointer;
 }
 .popup__atention {
   display: none;

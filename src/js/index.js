@@ -2,9 +2,15 @@ import '../css/index.css';
 import '../images/avatar.png';
 import '../images/favicon.svg';
 import '../images/image_07.png';
-import * as c from './constants';
+// import * as c from './constants';
+import Popup from './components/Popup';
+import Form from './components/Form';
 
 console.log('###: index.js loaded');
+const headerIcon = document.querySelector('.header__icon');
+const authorizationBtn = document.querySelector('.authorization');
+
+const popup = new Popup(document.querySelector('.popup'));
 
 function overlayOn() {
   document.querySelector('.overlay').style.display = 'block';
@@ -28,7 +34,7 @@ function hamburger() {
 }
 
 // Hamburger menu on small screen (light bg on light page)
-document.querySelector('.header__icon').addEventListener('mousedown', () => {
+headerIcon.addEventListener('mousedown', () => {
   hamburger();
   const header = document.querySelector('.header');
   const headerMenu = document.querySelector('.header__menu');
@@ -40,31 +46,33 @@ document.querySelector('.header__icon').addEventListener('mousedown', () => {
 });
 
 // open pop on authorization
-c.authorizationBtn.addEventListener('mousedown', () => {
-  c.popup.open();
+authorizationBtn.addEventListener('mousedown', () => {
+  popup.setContent('authorization');
+  popup.open();
+  // new Form(document.forms.main);
 });
 
-// close pop on X
-document.querySelector('.popup__close').addEventListener('mousedown', () => {
-  c.popup.close();
-});
+// const formMain = new Form(document.forms.main)
+// const formLogin = new Form(document.forms.login)
+
+// const formMain = document.forms.main;
 
 // submit registration listener
-c.form.addEventListener('submit', (evt) => {
-  evt.preventDefault();
-  const data = {
-    email: c.form[0].value,
-    password: c.form[1].value,
-    name: c.form[2].value,
-  };
-  console.log(data);
-});
+// form.addEventListener('submit', (evt) => {
+//   evt.preventDefault();
+//   const data = {
+//     email: form[0].value,
+//     password: form[1].value,
+//     name: form[2].value,
+//   };
+//   console.log(data);
+// });
 
 // disable submit when inputs are invalid
-c.form.addEventListener('input', () => {
-  if (c.form[0].validity.valid && c.form[1].validity.valid && c.form[2].validity.valid) {
-    c.form[3].removeAttribute('disabled');
-  } else {
-    c.form[3].setAttribute('disabled', 'true');
-  }
-});
+// form.addEventListener('input', () => {
+//   if (form[0].validity.valid && form[1].validity.valid && form[2].validity.valid) {
+//     form[3].removeAttribute('disabled');
+//   } else {
+//     form[3].setAttribute('disabled', 'true');
+//   }
+// });
