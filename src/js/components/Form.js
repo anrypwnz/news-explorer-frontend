@@ -1,3 +1,5 @@
+import MainApi from '../api/MainApi';
+
 export default class Form {
   constructor(form) {
     this.form = form;
@@ -19,12 +21,21 @@ export default class Form {
   setEventListeners() {
     this.form.addEventListener('submit', (evt) => {
       evt.preventDefault();
-      console.log('submit form', this.form.elements);
-      const data = {
-        email: this.form[0].value,
-        password: this.form[1].value,
-        name: this.form[2].value,
-      };
+      let data;
+      if (this.form.name === 'login') {
+        data = {
+          email: this.form[0].value,
+          password: this.form[1].value,
+        };
+      } else {
+        data = {
+          email: this.form[0].value,
+          password: this.form[1].value,
+          name: this.form[2].value,
+        };
+      }
+      const api = new MainApi();
+      api.signup({ data })
       console.log(data);
     });
     this.form.addEventListener('input', () => {

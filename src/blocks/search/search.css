@@ -71,6 +71,7 @@
   right: -2px;
   top: -1px;
   border-radius: 100px;
+  cursor: pointer;
 }
 
 .input__button:hover {

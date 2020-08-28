@@ -22,7 +22,7 @@ export default class Popup {
         <h2 class="popup__title">Регистрация</h2>
         <div class="input-group">
           <label class="input__label" for="email">Email</label>
-          <input name="email" id="email" type="email" autocomplete="email" class="popup__input popup__input-email" placeholder="Email" minlength="2" maxlength="30" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$" required>
+          <input name="email" id="email" type="email" autocomplete="email" class="popup__input popup__input-email" placeholder="Email" minlength="2" maxlength="30" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,6}$" required>
           <span class="popup__atention popup__validation-error">неправильный формат Email</span>
         </div>
         <div class="input-group">
@@ -59,7 +59,7 @@ export default class Popup {
       <h2 class="popup__title">Вход</h2>
       <div class="input-group">
         <label class="input__label" for="email">Email</label>
-        <input name="email" id="email" type="email" autocomplete="email" class="popup__input popup__input-email" placeholder="Email" minlength="2" maxlength="30" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$" required>
+        <input name="email" id="email" type="email" autocomplete="email" class="popup__input popup__input-email" placeholder="Email" minlength="2" maxlength="30" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,6}$" required>
         <span class="popup__atention popup__validation-error">неправильный формат Email</span>
       </div>
       <div class="input-group">
@@ -69,7 +69,7 @@ export default class Popup {
       </div>
       <div class="input-group">
         <span class="popup__atention">Пользователь с таким email уже зарегистрирован</span>
-        <input name="submit" type="submit" class="popup__input popup__input-submit" value="Зарегистрироваться" disabled>
+        <input name="submit" type="submit" class="popup__input popup__input-submit" value="Войти" disabled>
       </div>
       <span class="popup__helper">или <a class="popup__helper_link popup__authorization" href="#">Зарегистрироваться</a></span>
     </form>
@@ -90,8 +90,7 @@ export default class Popup {
       <span class="popup__helper"><a class="popup__helper_link popup__login" href="#">Выполнить вход</a></span>
     </div>`);
     }
-    const form = new Form(this.popup.querySelector('form'))
-    console.log(form)
+    const form = new Form(this.popup.querySelector('form'));
     form.setEventListeners();
   }
 

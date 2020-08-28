@@ -4,11 +4,26 @@ import '../images/favicon.svg';
 import '../images/image_07.png';
 // import * as c from './constants';
 import Popup from './components/Popup';
-import Form from './components/Form';
+import NewsApi from './api/NewsApi';
+import MainApi from './api/MainApi';
+
+const newsApi = new NewsApi();
+const mainApi = new MainApi();
+// test
+document.querySelector('.results__button').addEventListener('mousedown', () => {
+  mainApi.getArticles();
+});
 
 console.log('###: index.js loaded');
-const headerIcon = document.querySelector('.header__icon');
-const authorizationBtn = document.querySelector('.authorization');
+
+// searching news...
+const searchForm = document.forms.search;
+searchForm.addEventListener('submit', (evt) => {
+  evt.preventDefault();
+  const keyword = searchForm[0].value;
+  newsApi.getNews(keyword);
+  console.log({ keyword });
+});
 
 const popup = new Popup(document.querySelector('.popup'));
 
@@ -34,6 +49,7 @@ function hamburger() {
 }
 
 // Hamburger menu on small screen (light bg on light page)
+const headerIcon = document.querySelector('.header__icon');
 headerIcon.addEventListener('mousedown', () => {
   hamburger();
   const header = document.querySelector('.header');
@@ -46,33 +62,8 @@ headerIcon.addEventListener('mousedown', () => {
 });
 
 // open pop on authorization
+const authorizationBtn = document.querySelector('.authorization');
 authorizationBtn.addEventListener('mousedown', () => {
   popup.setContent('authorization');
   popup.open();
-  // new Form(document.forms.main);
 });
-
-// const formMain = new Form(document.forms.main)
-// const formLogin = new Form(document.forms.login)
-
-// const formMain = document.forms.main;
-
-// submit registration listener
-// form.addEventListener('submit', (evt) => {
-//   evt.preventDefault();
-//   const data = {
-//     email: form[0].value,
-//     password: form[1].value,
-//     name: form[2].value,
-//   };
-//   console.log(data);
-// });
-
-// disable submit when inputs are invalid
-// form.addEventListener('input', () => {
-//   if (form[0].validity.valid && form[1].validity.valid && form[2].validity.valid) {
-//     form[3].removeAttribute('disabled');
-//   } else {
-//     form[3].setAttribute('disabled', 'true');
-//   }
-// });
