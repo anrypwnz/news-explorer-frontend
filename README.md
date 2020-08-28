@@ -10,8 +10,11 @@
 
 
 `npm install` - install npm depencises
+
 `npm run build` -  assemble build 
+
 `npm run dev` - run hotreload mode
+
 `npm run deploy` - deploy project
 
 ## Author
