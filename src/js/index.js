@@ -11,6 +11,7 @@ const newsApi = new NewsApi();
 const mainApi = new MainApi();
 // test
 document.querySelector('.results__button').addEventListener('mousedown', () => {
+  console.log('get articles');
   mainApi.getArticles();
 });
 
@@ -67,3 +68,5 @@ authorizationBtn.addEventListener('mousedown', () => {
   popup.setContent('authorization');
   popup.open();
 });
+
+// TODO fix search input (bottom line)
