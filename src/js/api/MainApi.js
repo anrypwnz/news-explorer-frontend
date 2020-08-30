@@ -1,7 +1,8 @@
 /* eslint-disable class-methods-use-this */
 export default class MainApi {
-  // наверно должен принимать на вход токен
+  // должен принимать на вход токен и IP
   constructor() {
+    this.ip = 'http://84.201.134.251/';
     this.token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZjQ4ZmNlNzQ2NGZjMDU2NjdlMDNjOTgiLCJpYXQiOjE1OTg2MjI1MTQsImV4cCI6MTU5OTIyNzMxNH0.M34411pHlVp-u11FijBuJnkLMmNuU4_S8u9oFKymGx0';
   }
 
@@ -25,8 +26,9 @@ export default class MainApi {
     fetch('http://84.201.134.251/articles', {
       method: 'GET',
       headers: {
-        'Authorization': `Bearer ${this.token}`,
+        'Accept': 'application/json',
         'Content-Type': 'application/json',
+        'Authorization': `Bearer ${this.token}`,
       },
       mode: 'no-cors',
 
