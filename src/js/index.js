@@ -9,9 +9,9 @@ import MainApi from './api/MainApi';
 
 const newsApi = new NewsApi();
 const mainApi = new MainApi();
+
 // test
 document.querySelector('.results__button').addEventListener('mousedown', () => {
-  console.log('get articles');
   mainApi.getArticles();
 });
 
@@ -19,11 +19,12 @@ console.log('###: index.js loaded');
 
 // searching news...
 const searchForm = document.forms.search;
-searchForm.addEventListener('submit', (evt) => {
+searchForm.addEventListener('submit', async (evt) => {
   evt.preventDefault();
   const keyword = searchForm[0].value;
-  newsApi.getNews(keyword);
+  await newsApi.getNews(keyword);
   console.log({ keyword });
+  console.log(newsApi.articles);
 });
 
 const popup = new Popup(document.querySelector('.popup'));
@@ -68,5 +69,3 @@ authorizationBtn.addEventListener('mousedown', () => {
   popup.setContent('authorization');
   popup.open();
 });
-
-// TODO fix search input (bottom line)

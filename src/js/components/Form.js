@@ -19,6 +19,7 @@ export default class Form {
   // }
 
   setEventListeners() {
+    const api = new MainApi();
     this.form.addEventListener('submit', (evt) => {
       evt.preventDefault();
       let data;
@@ -27,16 +28,20 @@ export default class Form {
           email: this.form[0].value,
           password: this.form[1].value,
         };
+        api.signin(data);
       } else {
         data = {
           email: this.form[0].value,
           password: this.form[1].value,
           name: this.form[2].value,
         };
+        api.signup(data);
+        if (api.ok === 1) {
+          console.log('ok');
+        } else {
+          console.log('no');
+        }
       }
-      const api = new MainApi();
-      api.signup({ data })
-      console.log(data);
     });
     this.form.addEventListener('input', () => {
       // TODO проверить в зависимости от формы количество инпутов

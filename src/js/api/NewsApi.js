@@ -1,5 +1,6 @@
 export default class NewsApi {
   constructor() {
+    this.articles = {};
     this.today = new Date();
     this.apiKey = 'b665e938d3cc41038f1329dbe7bd4a74';
   }
@@ -9,7 +10,9 @@ export default class NewsApi {
       method: 'GET',
     })
       .then((res) => res.json())
-      .then((res) => console.log(res.articles))
+      .then((res) => {
+        this.articles = res.articles;
+      })
       .catch((e) => console.log(e));
   }
 
