@@ -44,7 +44,6 @@ export default class Form {
       }
     });
     this.form.addEventListener('input', () => {
-      // TODO проверить в зависимости от формы количество инпутов
       if (this.form[0].validity.valid
         && this.form[1].validity.valid
         && this.form[2].validity.valid) {
