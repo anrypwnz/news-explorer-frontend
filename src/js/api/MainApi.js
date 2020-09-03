@@ -1,16 +1,25 @@
 export default class MainApi {
   // должен принимать на вход  IP
-  constructor() {
+  constructor(host) {
     this.jwt_token = {};
-    this.ok = 0;
-    this.ip = 'http://84.201.134.251';
     this.local = 'http://localhost:3000';
+    this.puplicIp = 'http://84.201.134.251';
+    this.ip = host;
     this.token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZjQ4ZmNlNzQ2NGZjMDU2NjdlMDNjOTgiLCJpYXQiOjE1OTg2MjI1MTQsImV4cCI6MTU5OTIyNzMxNH0.M34411pHlVp-u11FijBuJnkLMmNuU4_S8u9oFKymGx0';
     this.headers = {
       Accept: 'application/json',
       'Content-Type': 'application/json',
       Authorization: `Bearer ${this.token}`,
     };
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  _getResponseData(res) {
+    if (!res.ok) {
+      // eslint-disable-next-line prefer-promise-reject-errors
+      return Promise.reject(`Error: ${res.status}`);
+    }
+    return res.json();
   }
 
   signup(data) {
@@ -22,14 +31,15 @@ export default class MainApi {
       headers: this.headers,
       body: JSON.stringify({ email, password, name }),
     })
-      .then((res) => res.json())
-      .then((res) => {
-        console.log(res);
-        if (res.ok) {
-          this.ok = 1;
-        }
-      })
-      .catch((e) => console.log(e));
+      .then((res) => this._getResponseData(res));
+    // .then((res) => res.json())
+    // .then((res) => {
+    //   console.log(res);
+    //   if (res.ok) {
+    //     this.ok = 1;
+    //   }
+    // })
+    // .catch((e) => console.log(e));
   }
 
   signin(data) {
@@ -40,10 +50,12 @@ export default class MainApi {
       headers: this.headers,
       body: JSON.stringify({ email, password }),
     })
-      .then((res) => res.json())
-      .then((res) => { this.login = res; })
-      .then((res) => console.log(this.jwt_token))
-      .catch((e) => console.log(e));
+      .then((res) => this._getResponseData(res));
+
+    // .then((res) => res.json())
+    // .then((res) => { this.login = res; })
+    // .then((res) => console.log(this.jwt_token))
+    // .catch((e) => console.log(e));
   }
 
   getUserData() {
@@ -51,9 +63,11 @@ export default class MainApi {
       method: 'GET',
       headers: this.headers,
     })
-      .then((res) => res.json())
-      .then((res) => console.log(res))
-      .catch((e) => console.log(e));
+      .then((res) => this._getResponseData(res));
+
+    // .then((res) => res.json())
+    // .then((res) => console.log(res))
+    // .catch((e) => console.log(e));
   }
 
   getArticles() {
@@ -61,9 +75,11 @@ export default class MainApi {
       method: 'GET',
       headers: this.headers,
     })
-      .then((res) => res.json())
-      .then((res) => console.log(res))
-      .catch((e) => console.log(e));
+      .then((res) => this._getResponseData(res));
+
+  //     .then((res) => res.json())
+  //     .then((res) => console.log(res))
+  //     .catch((e) => console.log(e));
   }
 
   // createArticle() {

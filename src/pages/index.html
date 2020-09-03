@@ -165,9 +165,9 @@
     </section>
 
     <!-- POPUP -->
-    <section class="popup"></section>
-
-    <!-- <section class="popup popup__main">
+<section class="popup"></section>
+<!--
+    <section class="popup popup__main">
       <form name="main" class="popup__content">
         <div class="popup__close">
           <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -184,7 +184,7 @@
           <label class="input__label" for="email">Email</label>
           <input name="email" id="email" type="email" autocomplete="email" class="popup__input popup__input-email"
             placeholder="Email" minlength="2" maxlength="30"
-            pattern="^(?!.*(\.\.))[a-zA-Z0-9]+[-_\.\dA-Za-z]*@[a-zA-Z\d]+[-_\da-z]*\.[a-z]+$" required>
+            pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,6}$" required>
           <span class="popup__atention popup__validation-error">неправильный формат Email</span>
         </div>
         <div class="input-group">
@@ -208,9 +208,9 @@
         </div>
         <span class="popup__helper">или <a class="popup__helper_link" href="#">Войти</a></span>
       </form>
-    </section> -->
+    </section>
 
-    <section class="popup popup__login">
+     <section class="popup popup__login">
       <form name="login" class="popup__content">
         <div class="popup__close">
           <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -225,23 +225,19 @@
         <h2 class="popup__title">Вход</h2>
         <div class="input-group">
           <label class="input__label" for="email">Email</label>
-          <input name="email" id="email" type="email" autocomplete="email" class="popup__input popup__input-email"
-            placeholder="Email" minlength="2" maxlength="30"
-            pattern="^(?!.*(\.\.))[a-zA-Z0-9]+[-_\.\dA-Za-z]*@[a-zA-Z\d]+[-_\da-z]*\.[a-z]+$" required>
+          <input name="email" id="email" type="email" autocomplete="email" class="popup__input popup__input-email" placeholder="Email" minlength="2" maxlength="30" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,6}$" required>
           <span class="popup__atention popup__validation-error">неправильный формат Email</span>
         </div>
         <div class="input-group">
           <label class="input__label" for="password">Пароль</label>
-          <input name="password" id="password" type="password" autocomplete="current-password"
-            class="popup__input popup__input-password" minlength="2" maxlength="30" placeholder="Пароль" required>
+          <input name="password" id="password" type="password" autocomplete="current-password" class="popup__input popup__input-password" minlength="2" maxlength="30"  placeholder="Пароль" required>
           <span class="popup__atention popup__validation-error">пароль от 2х до 30 символов</span>
         </div>
         <div class="input-group">
           <span class="popup__atention">Пользователь с таким email уже зарегистрирован</span>
-          <input name="submit" type="submit" class="popup__input popup__input-submit" value="Зарегистрироваться"
-            disabled>
+          <input name="submit" type="submit" class="popup__input popup__input-submit" value="Войти" disabled>
         </div>
-        <span class="popup__helper">или <a class="popup__helper_link" href="#">Зарегистрироваться</a></span>
+        <span class="popup__helper">или <a class="popup__helper_link popup__authorization" href="#">Зарегистрироваться</a></span>
       </form>
     </section>
 
@@ -258,9 +254,9 @@
           </svg>
         </div>
         <h2 class="popup__title">Пользователь успешно зарегистрирован!</h2>
-        <span class="popup__helper"><a class="popup__helper_link" href="#">Выполнить вход</a></span>
+        <span class="popup__helper"><a class="popup__helper_link popup__login" href="#">Выполнить вход</a></span>
       </div>
-    </section>
+    </section> -->
 
 
     <!-- FOOTER -->

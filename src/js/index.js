@@ -2,20 +2,27 @@ import '../css/index.css';
 import '../images/avatar.png';
 import '../images/favicon.svg';
 import '../images/image_07.png';
-// import * as c from './constants';
+import { NEWS_API, HEADER, MAIN_API, POPUP } from './constants';
+
 import Popup from './components/Popup';
+import Form from './components/Form';
 import NewsApi from './api/NewsApi';
 import MainApi from './api/MainApi';
+import BaseComponent from './components/BaseComponent';
+import Header from './components/Header';
 
-const newsApi = new NewsApi();
-const mainApi = new MainApi();
+console.log('###: index.js loaded');
+
+const newsApi = new NewsApi(NEWS_API);
+const mainApi = new MainApi(MAIN_API);
+const header = new Header(HEADER);
+const form = new Form(document.querySelector('form'), mainApi);
+const popup = new Popup(POPUP, mainApi);
 
 // test
 document.querySelector('.results__button').addEventListener('mousedown', () => {
   mainApi.getArticles();
 });
-
-console.log('###: index.js loaded');
 
 // searching news...
 const searchForm = document.forms.search;
@@ -26,8 +33,6 @@ searchForm.addEventListener('submit', async (evt) => {
   console.log({ keyword });
   console.log(newsApi.articles);
 });
-
-const popup = new Popup(document.querySelector('.popup'));
 
 function overlayOn() {
   document.querySelector('.overlay').style.display = 'block';
@@ -66,6 +71,5 @@ headerIcon.addEventListener('mousedown', () => {
 // open pop on authorization
 const authorizationBtn = document.querySelector('.authorization');
 authorizationBtn.addEventListener('mousedown', () => {
-  popup.setContent('authorization');
-  popup.open();
+  popup.setContent('auth');
 });
