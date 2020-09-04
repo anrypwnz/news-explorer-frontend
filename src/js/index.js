@@ -2,36 +2,34 @@ import '../css/index.css';
 import '../images/avatar.png';
 import '../images/favicon.svg';
 import '../images/image_07.png';
-import { NEWS_API, HEADER, MAIN_API, POPUP } from './constants';
+import {
+  NEWS_API, HEADER, MAIN_API, POPUP, SEARCH_FORM, RESULTS,
+} from './constants';
 
 import Popup from './components/Popup';
 import Form from './components/Form';
+import NewsCardList from './components/NewCardList';
 import NewsApi from './api/NewsApi';
 import MainApi from './api/MainApi';
-import BaseComponent from './components/BaseComponent';
 import Header from './components/Header';
+import NewsCard from './components/NewsCard';
 
 console.log('###: index.js loaded');
 
 const newsApi = new NewsApi(NEWS_API);
 const mainApi = new MainApi(MAIN_API);
+const popup = new Popup(POPUP, mainApi);
+const newsCard = new NewsCard();
+
+new NewsCardList(SEARCH_FORM, RESULTS, newsApi, newsCard);
+
 const header = new Header(HEADER);
 const form = new Form(document.querySelector('form'), mainApi);
-const popup = new Popup(POPUP, mainApi);
 
 // test
 document.querySelector('.results__button').addEventListener('mousedown', () => {
-  mainApi.getArticles();
-});
-
-// searching news...
-const searchForm = document.forms.search;
-searchForm.addEventListener('submit', async (evt) => {
-  evt.preventDefault();
-  const keyword = searchForm[0].value;
-  await newsApi.getNews(keyword);
-  console.log({ keyword });
-  console.log(newsApi.articles);
+  mainApi.getArticles()
+    .then((res) => console.log(res));
 });
 
 function overlayOn() {

@@ -6,6 +6,7 @@
   font-family:' Roboto Slab', Arial, Helvetica, sans-serif;;
   font-size: 40px;
   align-self: flex-start;
+  display: none;
 }
 .results__container {
   display: grid;
@@ -36,6 +37,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+.result__status_search {
+  display: none;
+}
+.result__status_no-results {
+  display: none;
 }
 .result__status-title {
   font-family: 'Roboto Slab', Arial, Helvetica, sans-serif;;

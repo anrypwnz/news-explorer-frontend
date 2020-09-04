@@ -19,6 +19,15 @@ const POPUP = {
 };
 
 const MAIN_API = 'http://localhost:3000';
+
+const SEARCH_FORM = document.forms.search;
+const RESULTS = {
+  status: document.querySelector('.result__status_search'),
+  noResult: document.querySelector('.result__status_no-results'),
+  resultsTitle: document.querySelector('.results__title'),
+  showMore: document.querySelector('.results__button'),
+};
+
 export {
-  NEWS_API, HEADER, MAIN_API, POPUP,
+  NEWS_API, HEADER, MAIN_API, POPUP, SEARCH_FORM, RESULTS,
 };

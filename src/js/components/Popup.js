@@ -52,7 +52,7 @@ export default class Popup extends BaseComponent {
         <span class="popup__atention popup__validation-error">имя с заглавной буквы, без цифр</span>
       </div>
       <div class="input-group">
-        <span class="popup__atention">Пользователь с таким email уже зарегистрирован</span>
+        <span class="popup__atention popup__email_error">Пользователь с таким email уже зарегистрирован</span>
         <input name="submit" type="submit" class="popup__input popup__input-submit" value="Зарегистрироваться"
           disabled>
       </div>
@@ -90,6 +90,23 @@ export default class Popup extends BaseComponent {
         <span class="popup__helper">или <a class="popup__helper_link popup__authorization" href="#">Зарегистрироваться</a></span>
       </form>
       `);
+    } if (type === 'success') {
+      this.popupWindow.insertAdjacentHTML('afterbegin', `
+      <form name="success" class="popup__content">
+      <div class="popup__close">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M22.3566 20L31.1781 28.8215L28.8211 31.1786L18.3497 20.7072C17.9592 20.3166 17.9592 19.6835 18.3497 19.2929L28.8211 8.82153L31.1781 11.1786L22.3566 20Z"
+            fill="white" />
+          <path
+            d="M18.1307 20L9.30919 28.8215L11.6662 31.1786L22.1376 20.7072C22.5281 20.3166 22.5281 19.6835 22.1376 19.2929L11.6662 8.82153L9.30919 11.1786L18.1307 20Z"
+            fill="white" />
+        </svg>
+      </div>
+      <h2 class="popup__title">Пользователь успешно зарегистрирован!</h2>
+      <span class="popup__helper"><a class="popup__helper_link popup__login" href="#">Выполнить вход</a></span>
+    </form>
+    `);
     }
 
     this.setEventListeners();
@@ -99,9 +116,7 @@ export default class Popup extends BaseComponent {
     const form = this.popupWindow.querySelector('form');
     let data;
 
-    console.log(form.name);
-
-    if (form.name === 'main') {
+    if (form.name === 'main' || form.name === 'success') {
       this.popupWindow.querySelector('.popup__login').addEventListener('mousedown', () => {
         this.clearContent();
         this.setContent('login');
@@ -115,8 +130,18 @@ export default class Popup extends BaseComponent {
         };
         console.log(data);
         this.api.signup(data)
-          .then((res) => console.log(res))
-          .catch((e) => console.log(e));
+          .then((res) => console.log(res.message))
+          .then(() => {
+            this.clearContent();
+            this.setContent('success');
+          })
+          .catch((e) => {
+            console.log(e);
+            if (e === 409) {
+              this.popupWindow.querySelector('.popup__email_error').style.display = 'block';
+              setTimeout(() => { this.popupWindow.querySelector('.popup__email_error').style.display = 'none'; }, 2000);
+            }
+          });
       });
     }
     if (form.name === 'login') {
@@ -131,7 +156,13 @@ export default class Popup extends BaseComponent {
           password: form[1].value,
         };
         console.log(data);
-        this.api.signin(data);
+        this.api.signin(data)
+          .then((res) => {
+            this.close();
+            console.log(res);
+            localStorage.setItem('token', res.token);
+          })
+          .catch((e) => console.log(e));
       });
     }
 
