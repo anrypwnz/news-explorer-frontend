@@ -6,8 +6,10 @@ const NEWS_API = {
 const HEADER = {
   authorizationBtn: document.querySelector('.authorization'),
   userName: document.querySelector('.nav__item-name'),
+  userBlockName: document.querySelector('.nav__block-name'),
   savedBtn: document.querySelector('.nav__item-saved'),
   headerIcon: document.querySelector('.header__icon'),
+  overlay: document.querySelector('.overlay'),
 };
 
 const POPUP = {
@@ -25,7 +27,7 @@ const RESULTS = {
   status: document.querySelector('.result__status_search'),
   noResult: document.querySelector('.result__status_no-results'),
   resultsTitle: document.querySelector('.results__title'),
-  showMore: document.querySelector('.results__button'),
+  showMoreBtn: document.querySelector('.results__button'),
 };
 
 export {

@@ -155,13 +155,15 @@ export default class Popup extends BaseComponent {
           email: form[0].value,
           password: form[1].value,
         };
-        console.log(data);
+        localStorage.setItem('name', data.email);
         this.api.signin(data)
           .then((res) => {
             this.close();
             console.log(res);
             localStorage.setItem('token', res.token);
+            //  тут нужно получить имя через апи
           })
+          .then(() => document.location.reload())
           .catch((e) => console.log(e));
       });
     }

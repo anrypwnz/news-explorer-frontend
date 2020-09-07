@@ -24,6 +24,7 @@
   cursor: pointer;
   font-size: 18px;
   font-weight: 700;
+  display:none;
 }
 
 .results__button:hover {

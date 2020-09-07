@@ -37,12 +37,23 @@
   padding: 24px 0;
   text-decoration: none;
 }
+
+.nav__item path {
+  fill: #fff;
+}
 .circle {
   border: 1px solid #fff;
   box-sizing: border-box;
   border-radius: 100px;
   padding: 15px;
   height: 50px;
+}
+.nav__block-name {
+  display: flex;
+  align-items: center;
+}
+.nav__block-name svg {
+  margin-left: 10px;
 }
 .nav__item_active {
   border-bottom: 2px solid #fff;
@@ -53,6 +64,9 @@
 }
 .header_dark a {
   color: #1A1B22;
+}
+.header_dark path {
+  fill: #1A1B22;
 }
 .header__icon_dark rect {
   fill: #111;

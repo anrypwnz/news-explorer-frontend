@@ -46,15 +46,11 @@ export default class MainApi {
   }
 
   getUserData() {
-    fetch(`${this.local}/users/me`, {
+    return fetch(`${this.local}/users/me`, {
       method: 'GET',
       headers: this.headers,
     })
       .then((res) => this._getResponseData(res));
-
-    // .then((res) => res.json())
-    // .then((res) => console.log(res))
-    // .catch((e) => console.log(e));
   }
 
   getArticles() {
@@ -63,14 +59,27 @@ export default class MainApi {
       headers: this.headers,
     })
       .then((res) => this._getResponseData(res));
-
-  //     .then((res) => res.json())
-  //     .then((res) => console.log(res))
-  //     .catch((e) => console.log(e));
   }
 
-  // createArticle() {
+  createArticle(data) {
+    const {
+      keyword, title, text, date, source, image, link,
+    } = data;
+    return fetch(`${this.local}/articles`, {
+      method: 'POST',
+      headers: this.headers,
+      body: JSON.stringify({
+        keyword, title, text, date, source, image, link,
+      }),
+    })
+      .then((res) => this._getResponseData(res));
+  }
 
-  // }
-  // removeArticle
+  removeArticle(id) {
+    return fetch(`${this.local}/articles/${id}`, {
+      method: 'DELETE',
+      headers: this.headers,
+    })
+      .then((res) => this._getResponseData(res));
+  }
 }
