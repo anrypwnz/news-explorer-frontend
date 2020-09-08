@@ -26,7 +26,7 @@ const auth = new Authorization();
 const header = new Header(popup, HEADER);
 
 const saved = new SavedArticles(mainApi, newsCard);
-saved.savedResults();
+saved.showSavedCards();
 
 // eslint-disable-next-line no-new
 new NewsCardList(SEARCH_FORM, RESULTS, newsApi, newsCard);

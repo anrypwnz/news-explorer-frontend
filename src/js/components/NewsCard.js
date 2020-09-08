@@ -15,7 +15,7 @@ export default class NewsCard {
     this.source = source;
     this.title = title;
     this.url = url;
-    this.urlToImage = urlToImage || 'https://images.unsplash.com/photo-1579158949974-bfa5b5f171e1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=80';
+    this.urlToImage = urlToImage || 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/300px-No_image_available.svg.png';
     this.keyword = keyword;
     const template = document.createElement('article');
     template.classList.add('card');
@@ -37,7 +37,7 @@ export default class NewsCard {
     <div class="card__date" data-time="${this.publishedAt}">${this.date}</div>
     <h3 class="card__title">${this.title}</h3>
     <p class="card__text">${this.description}</p>
-    <p class="card__source">${this.source && this.source.name}</p>
+    <p class="card__source">${this.source.name || this.source}</p>
   </div>
     `);
     document.querySelector('.results__container').appendChild(template);
