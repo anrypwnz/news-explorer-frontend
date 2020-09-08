@@ -30,8 +30,9 @@ export default class SavedArticles {
             obj[i].url = obj[i].link;
             delete obj[i].link;
 
-            this.newsCard.createCard(obj[i], obj[i].keyword);
+            this.newsCard.createCard(obj[i], obj[i].keyword, obj[i]._id);
           }
+
           const topKeywords = this._sortKeywords(keywords);
           this._showTitle(obj.length, topKeywords);
         })
@@ -50,10 +51,11 @@ export default class SavedArticles {
 
   _showTitle(length, topKeywords) {
     let saved;
-    // eslint-disable-next-line no-constant-condition
-    if (length % 10 === 2 || 3 || 4) {
+    const devided = length % 10;
+    console.log(devided)
+    if (devided === 2 || 3 || 4) {
       saved = ' сохраненные статьи';
-    } if (length % 10 === 1) {
+    } if (devided === 1) {
       saved = ' сохраненная статья';
     } else {
       saved = ' сохранённых статей';

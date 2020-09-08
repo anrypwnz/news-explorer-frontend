@@ -30,7 +30,7 @@
   font-family: Source Sans Pro;
   font-size: 18px;
 }
-.card__icon {
+.card__icon{
   justify-content: center;
   display: flex;
   align-items: center;
@@ -43,10 +43,19 @@
   width: 40px;
   cursor: pointer;
 }
-.card__icon:hover path {
+.card__icon_delete {
+  display: none;
+}
+.card__icon_delete:hover path {
+  fill:#1A1B22;
+}
+.card__icon_delete:active path {
   stroke:#1A1B22;
 }
-.card__icon:active path {
+.card__icon_mark:hover path {
+  stroke:#1A1B22;
+}
+.card__icon_mark:active path {
   stroke: #2F71E5;
   fill: #2F71E5;
 }
