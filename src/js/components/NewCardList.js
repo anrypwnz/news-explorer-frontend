@@ -18,11 +18,14 @@ export default class NewsCardList {
   }
 
   addListeners() {
+    let cards;
+    let keyword;
+    let n = 0;
     if (this.searchForm) {
       this.searchForm.addEventListener('submit', async (evt) => {
         evt.preventDefault();
         this.renderError('hide');
-        const keyword = this.searchForm[0].value;
+        keyword = this.searchForm[0].value;
         this.renderLoader('show');
         await this.newsApi.getNews(keyword);
         this.renderLoader('hide');
@@ -34,14 +37,29 @@ export default class NewsCardList {
         }
         this.renderResultsTitle('show');
         this.showMore('show');
-        const cards = this.newsApi.articles;
+        cards = this.newsApi.articles;
         console.log({ keyword });
-        console.log(cards);
-        for (const i in cards) {
-          this.newsCard.createCard(cards[i], keyword);
-        }
+        console.log({ cards });
+
+        do {
+          this.newsCard.createCard(cards[n], keyword);
+          n += 1;
+        } while (n < 3);
       });
     }
+    this.showMoreBtn.addEventListener('mousedown', () => {
+      this.newsCard.createCard(cards[n], keyword);
+      if (cards[n + 1]) {
+        this.newsCard.createCard(cards[n + 1], keyword);
+      }
+      if (cards[n + 2]) {
+        this.newsCard.createCard(cards[n + 2], keyword);
+      }
+      n += 3;
+      if (cards.length - n < 1) {
+        this.showMore('hide');
+      }
+    });
   }
 
   renderResultsTitle(mode) {
@@ -75,10 +93,6 @@ export default class NewsCardList {
       this.showMoreBtn.style.display = 'none';
     }
   }
-
-  // showMoreResults() {
-
-  // }
 
   // addCard() {
 

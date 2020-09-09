@@ -52,7 +52,7 @@ export default class SavedArticles {
   _showTitle(length, topKeywords) {
     let saved;
     const devided = length % 10;
-    console.log(devided)
+    console.log(devided);
     if (devided === 2 || 3 || 4) {
       saved = ' сохраненные статьи';
     } if (devided === 1) {

@@ -8,7 +8,7 @@ export default class NewsApi {
   }
 
   getNews(keyword) {
-    return fetch(`${this.proxy}everything?q=${keyword}&from=${this._getLastWeek()}&apiKey=${this.apiKey}`, {
+    return fetch(`${this.proxy}everything?q=${keyword}&from=${this._getLastWeek()}&apiKey=${this.apiKey}&pageSize=8`, {
       method: 'GET',
     })
       .then((res) => res.json())

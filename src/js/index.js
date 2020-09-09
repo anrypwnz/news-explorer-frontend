@@ -16,8 +16,6 @@ import NewsCard from './components/NewsCard';
 import Authorization from './utils/Authorization';
 import SavedArticles from './components/SavedArticles';
 
-console.log('###: index.js loaded');
-
 const newsApi = new NewsApi(NEWS_API);
 const mainApi = new MainApi(MAIN_API);
 const popup = new Popup(POPUP, mainApi);
