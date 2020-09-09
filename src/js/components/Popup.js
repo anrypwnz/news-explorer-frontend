@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 import BaseComponent from './BaseComponent';
 
 export default class Popup extends BaseComponent {
@@ -159,7 +160,6 @@ export default class Popup extends BaseComponent {
         this.api.signin(data)
           .then((res) => {
             this.close();
-            console.log(res);
             localStorage.setItem('token', res.token);
           })
           .then(() => document.location.reload())

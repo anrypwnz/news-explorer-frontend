@@ -2,8 +2,8 @@ export default class MainApi {
   // должен принимать на вход  IP
   constructor(host) {
     this.jwt_token = {};
-    this.local = 'http://localhost:3000';
-    // this.local = 'http://84.201.134.251';
+    // this.local = 'http://localhost:3000';
+    this.local = 'https://84.201.134.251';
     this.ip = host;
     this.token = localStorage.getItem('token');
     this.headers = {
