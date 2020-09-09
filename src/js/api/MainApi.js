@@ -3,7 +3,7 @@ export default class MainApi {
   constructor(host) {
     this.jwt_token = {};
     // this.local = 'http://localhost:3000';
-    this.local = 'https://84.201.134.251';
+    this.local = 'https://top-news.ml';
     this.ip = host;
     this.token = localStorage.getItem('token');
     this.headers = {
