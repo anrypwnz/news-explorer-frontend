@@ -20,7 +20,7 @@ const POPUP = {
   loginLink: document.querySelector('.popup__helper_link'),
 };
 
-const MAIN_API = 'https://top-news.ml/';
+const MAIN_API = 'https://top-news.ml';
 
 const SEARCH_FORM = document.forms.search;
 const RESULTS = {
