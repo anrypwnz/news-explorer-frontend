@@ -96,7 +96,6 @@ export default class NewsCard {
       article.link = card.querySelector('.card__url').href;
       this.api.createArticle(article)
         .then((res) => {
-          console.log('### added', article);
           card.setAttribute('data-id', res.article._id);
           evt.target.closest('.card__icon').classList.add('card__marked');
         })

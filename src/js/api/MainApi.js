@@ -2,9 +2,7 @@ export default class MainApi {
   // должен принимать на вход  IP
   constructor(host) {
     this.jwt_token = {};
-    // this.local = 'http://localhost:3000';
-    this.local = 'https://top-news.ml';
-    this.ip = host;
+    this.host = host;
     this.token = localStorage.getItem('token');
     this.headers = {
       Accept: 'application/json',
@@ -26,7 +24,7 @@ export default class MainApi {
     const { email } = data;
     const { password } = data;
     const { name } = data;
-    return fetch(`${this.local}/signup`, {
+    return fetch(`${this.host}/signup`, {
       method: 'POST',
       headers: this.headers,
       body: JSON.stringify({ email, password, name }),
@@ -37,7 +35,7 @@ export default class MainApi {
   signin(data) {
     const { email } = data;
     const { password } = data;
-    return fetch(`${this.local}/signin`, {
+    return fetch(`${this.host}/signin`, {
       method: 'POST',
       headers: this.headers,
       body: JSON.stringify({ email, password }),
@@ -46,7 +44,7 @@ export default class MainApi {
   }
 
   getUserData() {
-    return fetch(`${this.local}/users/me`, {
+    return fetch(`${this.host}/users/me`, {
       method: 'GET',
       headers: this.headers,
     })
@@ -54,7 +52,7 @@ export default class MainApi {
   }
 
   getArticles() {
-    return fetch(`${this.local}/articles`, {
+    return fetch(`${this.host}/articles`, {
       method: 'GET',
       headers: this.headers,
     })
@@ -65,7 +63,7 @@ export default class MainApi {
     const {
       keyword, title, text, date, source, image, link,
     } = data;
-    return fetch(`${this.local}/articles`, {
+    return fetch(`${this.host}/articles`, {
       method: 'POST',
       headers: this.headers,
       body: JSON.stringify({
@@ -76,7 +74,7 @@ export default class MainApi {
   }
 
   removeArticle(id) {
-    return fetch(`${this.local}/articles/${id}`, {
+    return fetch(`${this.host}/articles/${id}`, {
       method: 'DELETE',
       headers: this.headers,
     })
