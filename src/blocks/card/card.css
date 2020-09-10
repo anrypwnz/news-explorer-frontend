@@ -6,6 +6,7 @@
   max-height: 576px;
   max-width: 400px;
   min-width: 224px;
+  cursor: pointer;
 }
 .card__bg {
   position: relative;

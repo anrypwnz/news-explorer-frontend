@@ -54,6 +54,12 @@ export default class NewsCard {
   </div>
     `);
     document.querySelector('.results__container').appendChild(this.template);
+    this.template.addEventListener('click', (e) => {
+      if (e.target.classList.contains('card__icon') || e.target.tagName === 'svg' || e.target.tagName === 'path') {
+        return false;
+      }
+      return window.open(this.url, '_blanc');
+    });
     if (id) {
       this.template.setAttribute('data-id', this.id);
       this.template.querySelector('.card__keyword-container').style.display = 'flex';
@@ -80,8 +86,7 @@ export default class NewsCard {
     const card = evt.target.closest('.card');
     if (evt.target.closest('.card__icon').classList.contains('card__marked')) {
       this.api.removeArticle(card.dataset.id)
-        .then((res) => {
-          console.log(res);
+        .then(() => {
           evt.target.closest('.card__icon').classList.remove('card__marked');
         })
         .catch((e) => console.log(e));

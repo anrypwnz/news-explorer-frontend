@@ -103,10 +103,6 @@
   flex-direction: column;
   justify-content: space-evenly;
 }
-.header__nav.header__menu a {
-  display: block;
-  text-align: left;
-}
 @media screen and (max-width: 1024px){
   .header {
     padding: 0 40px;

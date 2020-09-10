@@ -1,5 +1,4 @@
 export default class MainApi {
-  // должен принимать на вход  IP
   constructor(host) {
     this.jwt_token = {};
     this.host = host;
