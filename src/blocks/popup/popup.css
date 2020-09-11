@@ -1,0 +1,130 @@
+@keyframes errors {
+  from {
+    margin-top: -5px;
+    opacity: .1;
+  }
+
+  to {
+    margin-top: 10px;
+    opacity: 1;
+  }
+}
+
+.popup__input:valid:not(:placeholder-shown) {
+	border-color: #559BBC;
+}
+
+.popup__input:invalid:not(:placeholder-shown) {
+	border-color: #df4b41;
+}
+
+.popup__input:invalid:not(:placeholder-shown) + .popup__validation-error {
+	display: block;
+}
+
+.popup {
+  display:none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+.popup_active {
+  display: flex;
+}
+.popup__content {
+  position: relative;
+  width: 430px;
+  max-height: 457px;
+  background-color: #fff;
+  border-radius: 16px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+}
+.popup__close {
+  position: absolute;
+  top: -35px;
+  right: -35px;
+  cursor: pointer;
+}
+.popup__title {
+  margin: 0;
+  font-weight: 900;
+}
+.popup__input {
+  border-bottom: 1px solid #CCCCCC;
+  min-height: 35px;
+  width: 100%;
+  margin-top: 40px;
+}
+.input-group {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.input__label {
+  position: absolute;
+  font-size: 12px;
+  color: #2F71E5;
+  top: 25px;
+  left: 2px;
+}
+.popup__input-submit {
+  height: 64px;
+  background: #2F71E5;
+  color: #fff;
+  border-radius: 100px;
+  margin-top: 40px;
+  cursor: pointer;
+  border-bottom: none;
+}
+.popup__input-submit:disabled {
+  background-color: #E6E8EB;
+}
+
+.popup__helper {
+  align-self: center;
+  margin-top: 16px;
+  font-size: 14px;
+}
+.popup__helper_link {
+  text-decoration: none;
+  color: #2F71E5;
+  cursor: pointer;
+}
+.popup__atention {
+  display: none;
+  font-size: 12px;
+  color: #ff0000;
+  text-align: center;
+  position: absolute;
+  top: 14px;
+}
+.popup__validation-error {
+  display: none;
+  left: 0;
+  top: 85px;
+  animation: errors .1s ease-in-out;
+}
+
+@media screen and (max-width: 573px) {
+  .popup__content {
+    height: 100vh;
+    align-self: flex-start;
+    margin-top: 60px;
+    padding: 16px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .popup__close {
+    position:  absolute;
+    top: -50px;
+    right: 20px;
+  }
+}

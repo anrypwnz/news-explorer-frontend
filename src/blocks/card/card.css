@@ -1,0 +1,136 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  background-color: #FFF;
+  max-height: 576px;
+  max-width: 400px;
+  min-width: 224px;
+}
+.card__bg {
+  /* background-image: url('../../images/image_07.png'); */
+  position: relative;
+  height: 272px;
+  min-height: 150px;
+  width: 100%;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+.card__image {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  width: 100%;
+  height: 100%;
+}
+.card__info {
+  padding: 24px;
+}
+.card__date {
+  color: #B6BCBF;
+  font-family: Source Sans Pro;
+  font-size: 18px;
+}
+.card__icon{
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 24px;
+  top: 24px;
+  border-radius: 5px;
+  background-color: #fff;
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
+}
+.card__icon_delete {
+  display: none;
+}
+.card__icon_delete:hover path {
+  fill:#1A1B22;
+}
+.card__icon_delete:active path {
+  stroke:#1A1B22;
+}
+.card__icon_mark:hover path {
+  stroke:#1A1B22;
+}
+.card__icon_mark:active path {
+  stroke: #2F71E5;
+  fill: #2F71E5;
+}
+.card__marked path {
+  stroke: #2F71E5;
+  fill: #2F71E5;
+}
+.card__title {
+  font-family: 'Roboto Slab', Arial, Helvetica, sans-serif;;
+  font-size: 26px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+.card__text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 8;
+  -webkit-box-orient: vertical;
+}
+.card__source {
+  font-family: 'Roboto Slab', Arial, Helvetica, sans-serif;;
+  text-transform: uppercase;
+  color: #B6BCBF;
+}
+.card__keyword-container {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  min-width: 88px;
+  min-height: 40px;
+  background-color: #fff;
+  border-radius: 10px;
+  display: none;
+  justify-content: center;
+}
+.card__keyword {
+  border-radius: 10px;
+  font-weight: 500;
+}
+.card__keyword-container_visible {
+  display: flex;
+}
+
+@media screen and (max-width: 1024px){
+
+  .card__info {
+    padding: 16px;
+  }
+  .card__bg {
+    min-height: 196px;
+  }
+  .card__title {
+    font-size: 22px;
+    margin: 10px 0;
+  }
+  .card__source {
+    margin: 10px 0;
+  }
+  .card__icon {
+    right: 8px;
+    top: 8px;
+  }
+  .card__keyword-container{
+    left: 8px;
+    top: 8px;
+  }
+  .card__bg {
+    height: 150px;
+  }
+  .card__text {
+    -webkit-line-clamp: 4;
+  }
+
+}
