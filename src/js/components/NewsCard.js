@@ -18,15 +18,19 @@ export default class NewsCard {
     this.urlToImage = urlToImage || 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/300px-No_image_available.svg.png';
     this.keyword = keyword;
     this.id = id;
-    const template = document.createElement('article');
-    template.classList.add('card');
-    template.insertAdjacentHTML('afterbegin', `
+
+    this.template = document.createElement('article');
+    this.template.classList.add('card');
+    this.template.insertAdjacentHTML('afterbegin', `
     <div class="card__bg">
     <a class="card__url" href="${this.url}" target="_blanc">
       <img src="${this.urlToImage}" alt="card-image" class="card__image">
     </a>
     <div class="card__keyword-container">
       <button class="card__keyword">${this.keyword}</button>
+    </div>
+    <div class="card__keyword-container card__warning">
+      <p class="card__warning-text">Войдите, чтобы сохранять статьи</p>
     </div>
     <button class="card__icon card__icon_mark">
       <svg width="14" height="19" viewBox="0 0 14 19" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -42,20 +46,27 @@ export default class NewsCard {
   </div>
   <div class="card__info">
     <div class="card__date" data-time="${this.publishedAt}">${this.date}</div>
-    <h3 class="card__title">${this.title}</h3>
+    <a class="card__url link" href="${this.url}" target="_blanc">
+      <h3 class="card__title">${this.title}</h3>
+    </a>
     <p class="card__text">${this.description}</p>
     <p class="card__source">${this.source.name || this.source}</p>
   </div>
     `);
-    document.querySelector('.results__container').appendChild(template);
-
+    document.querySelector('.results__container').appendChild(this.template);
+    this.template.addEventListener('click', (e) => {
+      if (e.target.classList.contains('card__icon') || e.target.tagName === 'svg' || e.target.tagName === 'path') {
+        return false;
+      }
+      return window.open(this.url, '_blanc');
+    });
     if (id) {
-      template.setAttribute('data-id', this.id);
-      template.querySelector('.card__keyword-container').style.display = 'flex';
-      template.querySelector('.card__icon_mark').style.display = 'none';
-      template.querySelector('.card__icon_delete').style.display = 'flex';
+      this.template.setAttribute('data-id', this.id);
+      this.template.querySelector('.card__keyword-container').style.display = 'flex';
+      this.template.querySelector('.card__icon_mark').style.display = 'none';
+      this.template.querySelector('.card__icon_delete').style.display = 'flex';
 
-      template.querySelector('.card__icon_delete').addEventListener('click', (evt) => {
+      this.template.querySelector('.card__icon_delete').addEventListener('click', (evt) => {
         const article = evt.target.closest('.card');
         this.api.removeArticle(article.dataset.id)
           .then(() => article.remove())
@@ -63,17 +74,19 @@ export default class NewsCard {
       });
     }
 
-    template.querySelector('.card__icon_mark').addEventListener('mousedown', (evt) => {
+    this.template.querySelector('.card__icon_mark').addEventListener('mousedown', (evt) => {
       this.addCard(evt);
     });
+    if (!localStorage.token) {
+      this.showWarning();
+    }
   }
 
   addCard(evt) {
     const card = evt.target.closest('.card');
     if (evt.target.closest('.card__icon').classList.contains('card__marked')) {
       this.api.removeArticle(card.dataset.id)
-        .then((res) => {
-          console.log(res);
+        .then(() => {
           evt.target.closest('.card__icon').classList.remove('card__marked');
         })
         .catch((e) => console.log(e));
@@ -88,7 +101,6 @@ export default class NewsCard {
       article.link = card.querySelector('.card__url').href;
       this.api.createArticle(article)
         .then((res) => {
-          console.log('### added', article);
           card.setAttribute('data-id', res.article._id);
           evt.target.closest('.card__icon').classList.add('card__marked');
         })
@@ -96,10 +108,9 @@ export default class NewsCard {
     }
   }
 
-  renderIcon() {
-  }
-
-  setCardListeners() {
+  _clearCardField() {
+    document.querySelector('.results__container').textContent = '';
+    document.querySelector('.results__title').style.display = 'none';
   }
 
   // eslint-disable-next-line consistent-return
@@ -145,5 +156,15 @@ export default class NewsCard {
       }
       return `${newTime[2]} ${month}, ${newTime[0]}`;
     }
+  }
+
+  showWarning() {
+    this.template.querySelector('.card__icon_mark').addEventListener('mouseenter', (evt) => {
+      const e = evt.target.closest('.card').querySelector('.card__warning');
+      e.style.display = 'flex';
+      setTimeout(() => {
+        e.style.display = 'none';
+      }, 2000);
+    });
   }
 }

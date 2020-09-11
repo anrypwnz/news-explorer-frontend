@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 import BaseComponent from './BaseComponent';
 
 export default class Popup extends BaseComponent {
@@ -84,7 +85,7 @@ export default class Popup extends BaseComponent {
           <span class="popup__atention popup__validation-error">пароль от 2х до 30 символов</span>
         </div>
         <div class="input-group">
-          <span class="popup__atention">Пользователь с таким email уже зарегистрирован</span>
+          <span class="popup__atention popup__data_error">Неверный email или пароль</span>
           <input name="submit" type="submit" class="popup__input popup__input-submit" value="Войти" disabled>
         </div>
         <span class="popup__helper">или <a class="popup__helper_link popup__authorization" href="#">Зарегистрироваться</a></span>
@@ -128,7 +129,7 @@ export default class Popup extends BaseComponent {
           password: form[1].value,
           name: form[2].value,
         };
-        console.log(data);
+        localStorage.setItem('name', data.name);
         this.api.signup(data)
           .then((res) => console.log(res.message))
           .then(() => {
@@ -149,22 +150,25 @@ export default class Popup extends BaseComponent {
         this.clearContent();
         this.setContent('auth');
       });
-      form.addEventListener('submit', (evt) => {
+      form.addEventListener('submit', async (evt) => {
         evt.preventDefault();
         data = {
           email: form[0].value,
           password: form[1].value,
         };
-        localStorage.setItem('name', data.email);
         this.api.signin(data)
           .then((res) => {
             this.close();
-            console.log(res);
             localStorage.setItem('token', res.token);
-            //  тут нужно получить имя через апи
           })
           .then(() => document.location.reload())
-          .catch((e) => console.log(e));
+          .catch((e) => {
+            console.log(e);
+            if (e === 401) {
+              this.popupWindow.querySelector('.popup__data_error').style.display = 'block';
+              setTimeout(() => { this.popupWindow.querySelector('.popup__data_error').style.display = 'none'; }, 2000);
+            }
+          });
       });
     }
 

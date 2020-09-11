@@ -50,9 +50,28 @@ export default class SavedArticles {
   }
 
   _showTitle(length, topKeywords) {
-    let saved;
+    let saved = ' сохранённых статей';
     const devided = length % 10;
-    console.log(devided)
+    console.log({ devided });
+    console.log({ length });
+    console.log(topKeywords.length);
+    if (topKeywords.length <= 3) {
+      if (topKeywords.length === 1) {
+        this.keywordTitle.insertAdjacentHTML('afterbegin', ` По ключевому слову: <b>${topKeywords[0]}</b>`);
+        saved = ' сохраненная статья';
+      }
+      if (topKeywords.length === 2) {
+        this.keywordTitle.insertAdjacentHTML('afterbegin', ` По ключевым словам: <b>${topKeywords[0]}, ${topKeywords[1]}</b>`);
+        saved = ' сохраненные статьи';
+      }
+      if (topKeywords.length === 3) {
+        this.keywordTitle.insertAdjacentHTML('afterbegin', ` По ключевым словам: <b>${topKeywords[0]}, ${topKeywords[1]}, ${topKeywords[2]}</b>`);
+        saved = ' сохраненные статьи';
+      }
+    } else {
+      this.keywordTitle.insertAdjacentHTML('afterbegin', ` По ключевым словам: <b>${topKeywords[0]}, ${topKeywords[1]}</b> и <b>${topKeywords.length - 2} другим</b>`);
+    }
+    // eslint-disable-next-line no-constant-condition
     if (devided === 2 || 3 || 4) {
       saved = ' сохраненные статьи';
     } if (devided === 1) {
@@ -60,9 +79,6 @@ export default class SavedArticles {
     } else {
       saved = ' сохранённых статей';
     }
-    this.title.textContent = `${document.querySelector('.nav__item-name').textContent}
-    , у вас ${length} ${saved}`;
-
-    this.keywordTitle.insertAdjacentHTML('afterbegin', ` По ключевым словам: <b>${topKeywords[0]}, ${topKeywords[1]}</b> и <b>${topKeywords.length - 2} другим</b>`);
+    this.title.textContent = `${document.querySelector('.nav__item-name').textContent}, у вас ${length} ${saved}`;
   }
 }

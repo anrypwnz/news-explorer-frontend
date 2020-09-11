@@ -15,15 +15,10 @@ export default class Header {
 
   login(userName) {
     this.authorizationBtn.style.display = 'none';
-    this.userBlockName.style.display = 'flex';
-    this.savedBtn.style.display = 'block';
     this.userName.textContent = userName;
   }
 
   unathorized() {
-    if (window.innerWidth < 730) {
-      this.authorizationBtn.style.display = 'block';
-    }
     this.userBlockName.style.display = 'none';
     this.savedBtn.style.display = 'none';
   }

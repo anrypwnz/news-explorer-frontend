@@ -7,7 +7,6 @@ import {
 } from './constants';
 
 import Popup from './components/Popup';
-// import Form from './components/Form';
 import NewsCardList from './components/NewCardList';
 import NewsApi from './api/NewsApi';
 import MainApi from './api/MainApi';
@@ -16,13 +15,11 @@ import NewsCard from './components/NewsCard';
 import Authorization from './utils/Authorization';
 import SavedArticles from './components/SavedArticles';
 
-console.log('###: index.js loaded');
-
+const auth = new Authorization();
 const newsApi = new NewsApi(NEWS_API);
 const mainApi = new MainApi(MAIN_API);
 const popup = new Popup(POPUP, mainApi);
 const newsCard = new NewsCard(mainApi);
-const auth = new Authorization();
 const header = new Header(popup, HEADER);
 
 const saved = new SavedArticles(mainApi, newsCard);

@@ -14,15 +14,20 @@ export default class NewsCardList {
     this.showMoreBtn = showMoreBtn;
 
     this.container = document.querySelector('.results');
-    this.addListeners();
+    this._addListeners();
   }
 
-  addListeners() {
+  _addListeners() {
+    let cards;
+    let keyword;
+    let n = 0;
     if (this.searchForm) {
       this.searchForm.addEventListener('submit', async (evt) => {
         evt.preventDefault();
+        this.newsCard._clearCardField();
+        this.renderResultsTitle('hide');
         this.renderError('hide');
-        const keyword = this.searchForm[0].value;
+        keyword = this.searchForm[0].value;
         this.renderLoader('show');
         await this.newsApi.getNews(keyword);
         this.renderLoader('hide');
@@ -34,11 +39,33 @@ export default class NewsCardList {
         }
         this.renderResultsTitle('show');
         this.showMore('show');
-        const cards = this.newsApi.articles;
-        console.log({ keyword });
-        console.log(cards);
-        for (const i in cards) {
-          this.newsCard.createCard(cards[i], keyword);
+        cards = this.newsApi.articles;
+        if (cards.length <= 3) {
+          for (let i = 0; i < cards.length; i += 1) {
+            this.showMore('hide');
+            this.newsCard.createCard(cards[i], keyword);
+          }
+        } else {
+          do {
+            this.newsCard.createCard(cards[n], keyword);
+            n += 1;
+          } while (n < 3);
+        }
+      });
+    }
+
+    if (this.showMoreBtn) {
+      this.showMoreBtn.addEventListener('mousedown', () => {
+        this.newsCard.createCard(cards[n], keyword);
+        if (cards[n + 1]) {
+          this.newsCard.createCard(cards[n + 1], keyword);
+        }
+        if (cards[n + 2]) {
+          this.newsCard.createCard(cards[n + 2], keyword);
+        }
+        n += 3;
+        if (cards.length - n < 1) {
+          this.showMore('hide');
         }
       });
     }
@@ -75,12 +102,4 @@ export default class NewsCardList {
       this.showMoreBtn.style.display = 'none';
     }
   }
-
-  // showMoreResults() {
-
-  // }
-
-  // addCard() {
-
-  // }
 }

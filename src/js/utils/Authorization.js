@@ -11,10 +11,8 @@ export default class Authtorization {
 
   isLoggedIn() {
     if (localStorage.token) {
-      console.log('## authorized name', localStorage.name);
       return true;
     }
-    console.log('## unathorized');
     return false;
   }
 }
