@@ -1,7 +1,6 @@
 import '../css/index.css';
 import '../images/avatar.png';
 import '../images/favicon.svg';
-import '../images/image_07.png';
 import {
   NEWS_API, HEADER, MAIN_API, POPUP, SEARCH_FORM, RESULTS,
 } from './constants';
