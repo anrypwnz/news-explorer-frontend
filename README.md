@@ -1,13 +1,15 @@
 # Welcome to news-explorer-frontend 👋
 ![Version](https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000)
-[![Documentation](https://img.shields.io/badge/documentation-yes-brightgreen.svg)](https://github.com/anrypwnz/news-explorer-frontend#readme)
 
 > Frontend for &#34;News Explorer&#34; project
 
-### 🏠 [Homepage](https://anrypwnz.github.io/news-explorer-frontend/)
+###  [>>Demo<<](https://anrypwnz.github.io/news-explorer-frontend/)
+
+В проекте вы можете искать новости по ключевому слову за последние 7 дней.
+
+Вы можете зарегистрироваться(подтверждать почту не нужно) и сохранять понравившиеся статьи в свой личный кабинет.
 
 ## How to run project
-
 
 `npm install` - install npm depencises
 
