@@ -1,4 +1,4 @@
-# Welcome to news-explorer-frontend 👋
+# Welcome to New Explorer Project 👋
 ![Version](https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000)
 
 > Frontend for &#34;News Explorer&#34; project
