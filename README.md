@@ -5,7 +5,7 @@
 
 ###  [>>Проект находится по этой ссылке<<](https://anrypwnz.github.io/news-explorer-frontend/)
 
-###  [Бэкенд проекта](https://github.com/anrypwnz/news-explorer-api)
+###  [Бэкенд проекта лежит тут](https://github.com/anrypwnz/news-explorer-api)
 
 В проекте вы можете искать новости по ключевому слову за последние 7 дней.
 
