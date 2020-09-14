@@ -3,7 +3,7 @@
 
 > Frontend for &#34;News Explorer&#34; project
 
-###  [>>Demo<<](https://anrypwnz.github.io/news-explorer-frontend/)
+###  [>>Проект находится по этой ссылке<<](https://anrypwnz.github.io/news-explorer-frontend/)
 
 В проекте вы можете искать новости по ключевому слову за последние 7 дней.
 
